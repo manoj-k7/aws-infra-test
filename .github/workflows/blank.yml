@@ -17,7 +17,7 @@ jobs:
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v2
       with:
-        aws-iam-role-arn: arn:aws:iam::021891611555:role/LimitedAccessRole
+        role-to-assume: arn:aws:iam::021891611555:role/LimitedAccessRole
         aws-region: ap-south-1
 
     - name: Deploy CloudFormation stack
