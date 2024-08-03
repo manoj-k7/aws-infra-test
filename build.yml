@@ -22,6 +22,6 @@ jobs:
     - name: Deploy CloudFormation stack
       run: |
         aws cloudformation deploy \
-          --template-file  /c/Users/manoj/OneDrive/Desktop/aws-infra-test/template.yml \
+          --template-file  /template.yml \
           --stack-name aws-resource-test \
           --capabilities CAPABILITY_NAMED_IAM
