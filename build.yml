@@ -1,0 +1,27 @@
+name: Deploy AWS Infrastructure
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        aws-iam-role-arn: arn:aws:iam::021891611555:role/LimitedAccessRole
+        aws-region: ap-south-1
+
+    - name: Deploy CloudFormation stack
+      run: |
+        aws cloudformation deploy \
+          --template-file  /c/Users/manoj/OneDrive/Desktop/aws-infra-test/template.yml \
+          --stack-name aws-resource-test \
+          --capabilities CAPABILITY_NAMED_IAM
